@@ -4,10 +4,10 @@ package I_Stack is
    -- outro
    type Int_Stack is private;
 
-   -- Max stack size.
+   -- Tamanho maximo
    Max_Size: constant Integer := 100;
 
-   -- All the public stack operations.
+   -- Declaracao das funcoes e procedimentos:
    procedure Push(S: in out Int_Stack; I: CHARACTER);
    procedure Pop(S: in out Int_Stack; I: out CHARACTER);
    function Top(S: Int_Stack) return CHARACTER;
@@ -16,10 +16,10 @@ package I_Stack is
    procedure Clean(S: in out Int_Stack);
 
    private
-      -- The items here cannot be accessed by clients of the package.
+      -- Esta eh a parte inacessivel pelos programas q usam esta lib:
       type Stack_Data_Type is array(1..Max_Size) of CHARACTER;
       type Int_Stack is record
-         Size: CHARACTER := 'A';
+         Size: Integer := 0;
          Data: Stack_Data_Type;
       end record;
 end I_Stack;

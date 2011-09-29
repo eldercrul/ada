@@ -1,6 +1,6 @@
 package body I_Stack is
-   -- Push an integer.  If the stack is already full, ignore the push.
-   procedure Push(S: in out Int_Stack; I: Integer) is
+
+   procedure Push(S: in out Int_Stack; I: CHARACTER) is
    begin
       if S.Size < Max_Size then
          S.Size := S.Size + 1;
@@ -8,8 +8,8 @@ package body I_Stack is
       end if;
    end Push;
 
-   -- Pop and integer.  If the stack is empty, a zeor is placed in I.
-   procedure Pop(S: in out Int_Stack; I: out Integer) is
+
+   procedure Pop(S: in out Int_Stack; I: out CHARACTER) is
    begin
       if S.Size > 0 then
          I := S.Data(S.Size);
@@ -17,7 +17,7 @@ package body I_Stack is
       end if;
    end Pop;
 
-   -- Get the top item, or 0 if the stack is empty.
+
    function Top(S: Int_Stack) return Integer is
    begin
       if S.Size > 0 then
@@ -27,19 +27,19 @@ package body I_Stack is
       end if;
    end Top;
 
-   -- Tell if the stack is empty.
+
    function Empty(S: Int_Stack) return Boolean is
    begin
       return S.Size = 0;
    end Empty;
 
-   -- Tell if the stack is empty.
+
    function Full(S: Int_Stack) return Boolean is
    begin
       return S.Size = Max_Size;
    end Full;
 
-   -- Make the stack empty.
+
    procedure Clean(S: in out Int_Stack) is
    begin
       S.Size := 0;
