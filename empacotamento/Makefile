@@ -15,4 +15,4 @@ str:
 
 
 clean:
-	@rm *.ali int_stack_user *.o
+	@rm *.ali *.o int_stack_user
