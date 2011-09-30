@@ -1,24 +1,24 @@
 package body Generic_Stack is
 
-   procedure Push(S: in out Gen_Stack; I: Integer) is
+   procedure Push(S: in out Gen_Stack; E: Gen_Elem) is
    begin
       if S.Size < Max_Size then
          S.Size := S.Size + 1;
-         S.Data(S.Size) := I;
+         S.Data(S.Size) := E;
       end if;
    end Push;
 
 
-   procedure Pop(S: in out Gen_Stack; I: out Integer) is
+   procedure Pop(S: in out Gen_Stack; E: out Gen_Elem) is
    begin
       if S.Size > 0 then
-         I := S.Data(S.Size);
+         E := S.Data(S.Size);
          S.Size := S.Size - 1;
       end if;
    end Pop;
 
 
-   function Top(S: Gen_Stack) return Integer is
+   function Top(S: Gen_Stack) return Gen_Elem is
    begin
       if S.Size > 0 then
          return S.Data(S.Size);
