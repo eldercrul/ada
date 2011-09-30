@@ -1,15 +1,12 @@
 -- Programa cliente:
 
 with Gnat.Io; use Gnat.Io;
-with I_Stack_Str; use I_Stack_Str;
---with I_Stack_Int; use I_Stack_Int;
+with Generic_Stack; use G_Stack;
 
-procedure Int_Stack_User is
+procedure Stack_User is
    -- Pilha:
-   S: Int_Stack_Str;
-   --S: Int_Stack_Int;
-   --Exciting: Integer;
-   Exciting: CHARACTER;
+   S: Gen_Stack;
+   Exciting: Generic;
 
 begin
    -- S.Size := 5; -> tipo privado, logo nao eh permitido
@@ -18,7 +15,6 @@ begin
    loop
       Put("> ");
       Get(Exciting);
-      --exit when Exciting = -1;
       exit when Exciting = '0';
       Push(S, Exciting);
    end loop;
@@ -31,4 +27,4 @@ begin
       Put(" ");
    end loop;
    New_Line;
-end Int_Stack_User;
+end Stack_User;
