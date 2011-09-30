@@ -1,6 +1,6 @@
-package body I_Stack_Int is
+package body Generic_Stack is
 
-   procedure Push(S: in out Int_Stack_Int; I: Integer) is
+   procedure Push(S: in out Gen_Stack; I: Integer) is
    begin
       if S.Size < Max_Size then
          S.Size := S.Size + 1;
@@ -9,7 +9,7 @@ package body I_Stack_Int is
    end Push;
 
 
-   procedure Pop(S: in out Int_Stack_Int; I: out Integer) is
+   procedure Pop(S: in out Gen_Stack; I: out Integer) is
    begin
       if S.Size > 0 then
          I := S.Data(S.Size);
@@ -18,7 +18,7 @@ package body I_Stack_Int is
    end Pop;
 
 
-   function Top(S: Int_Stack_Int) return Integer is
+   function Top(S: Gen_Stack) return Integer is
    begin
       if S.Size > 0 then
          return S.Data(S.Size);
@@ -28,20 +28,20 @@ package body I_Stack_Int is
    end Top;
 
 
-   function Empty(S: Int_Stack_Int) return Boolean is
+   function Empty(S: Gen_Stack) return Boolean is
    begin
       return S.Size = 0;
    end Empty;
 
 
-   function Full(S: Int_Stack_Int) return Boolean is
+   function Full(S: Gen_Stack) return Boolean is
    begin
       return S.Size = Max_Size;
    end Full;
 
 
-   procedure Clean(S: in out Int_Stack_Int) is
+   procedure Clean(S: in out Gen_Stack) is
    begin
       S.Size := 0;
    end Clean;
-end I_Stack_Int;
+end Generic_Stack;
