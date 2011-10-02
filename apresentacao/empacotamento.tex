@@ -1,0 +1,76 @@
+\documentclass{beamer}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+
+\title{Empacotamento e Tipagem Genérica em ADA}
+\author{Aramis Fernandes \& Elder Crul}
+
+\begin{document}
+
+    % Uma das formas possiveis para declarar um frame:
+    \frame{\titlepage}
+
+    % [2]
+    \frame
+    {
+        \frametitle{Sumário}
+        \tableofcontents
+    }
+
+    % Manda os highlight da secao corrente:
+    \AtBeginSection[]
+    {
+        \begin{frame}{Sumário}
+            \tableofcontents[currentsection]
+        \end{frame}
+    }
+
+    % Aqui a secao comeca efetivamente:
+    \section{Empacotamento}
+
+    % Cada frame eh um slide:
+    \begin{frame}{O que é?}
+        \begin{itemize}
+            \item<1-> Modularização;
+            \item<2-> Portabilidade;
+            \item<3-> \textit{Et cetera}.
+        \end{itemize}
+    \end{frame}
+
+    %%%
+    \begin{frame}{Mas em ADA...}
+        \begin{itemize}
+            \item<1-|alert@1>Nomes de pacotes e arquivos são relacionados,
+            prevenindo colisões.
+            \item<2-> Um arquivo com definições (.h), e um arquivo com o bloco de
+            execução (.c).
+            \item<3-> Módulos podem ser compilados separadamente.
+        \end{itemize}
+    \end{frame}
+
+    %%% Exemplos de código:
+    \begin{frame}[fragile]
+        \frametitle{Exemplo:}
+         package Public\_Only\_Package is
+             type Range\_10 is range 1 .. 10;
+             end Public\_Only\_Package;
+    \end{frame}
+
+
+    % Manda os highlight da secao corrente:
+    \AtBeginSection[]
+    {
+        \begin{frame}{Sumário}
+            \tableofcontents[currentsection]
+        \end{frame}
+    }
+    % A outra secao:
+    \section{Tipos Genéricos}
+    \begin{frame}{Tipagem Genérica}
+        \begin{itemize}
+            \item<1-> 1;
+            \item<2-> 2;
+        \end{itemize}
+    \end{frame}
+
+\end{document}
