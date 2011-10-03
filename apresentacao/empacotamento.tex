@@ -1,6 +1,7 @@
 \documentclass{beamer}
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
+%\usepackage{verbatim}
 
 \title{Empacotamento e Tipagem Genérica em ADA}
 \author{Aramis Fernandes \& Elder Crul}
@@ -30,32 +31,56 @@
 
     % Cada frame eh um slide:
     \begin{frame}{O que é?}
-        \begin{itemize}
-            \item<1-> Modularização;
-            \item<2-> Portabilidade;
-            \item<3-> \textit{Et cetera}.
-        \end{itemize}
+        Segundo o Prof. Direne, é a Arte de ocultar gradualmente a informação.
     \end{frame}
 
     %%%
-    \begin{frame}{Mas em ADA...}
+    \begin{frame}{E em ADA...}
         \begin{itemize}
-            \item<1-|alert@1>Nomes de pacotes e arquivos são relacionados,
-            prevenindo colisões.
-            \item<2-> Um arquivo com definições (.h), e um arquivo com o bloco de
-            execução (.c).
-            \item<3-> Módulos podem ser compilados separadamente.
+            \item<1-> Existem dois tipos de pacotes:
+            \begin{itemize}
+                \item ADT (\textit{Abstract Data Type}): visíveis e privados;
+                \item ASM (\textit{Abstract State Machine}): objeto.
+            \end{itemize}
+            \item<2-> ASM.public: operações e não atributos.
+            \item<2-> ASM.private: *TODOS* os atributos.
         \end{itemize}
     \end{frame}
 
     %%% Exemplos de código:
-    \begin{frame}[fragile]
+    \begin{frame}[containsverbatim]
+    
         \frametitle{Exemplo:}
-         package Public\_Only\_Package is
-             type Range\_10 is range 1 .. 10;
-             end Public\_Only\_Package;
+\begin{verbatim}
+-- Definicao de um pacote onde especificacoes,
+-- variaveis, tipos, constantes, etc.,
+-- sao todos visiveis pelos programas que
+-- usarao o pacote:
+
+package Public_Only_Package is
+
+    type Range_10 is range 1 .. 10;
+
+end Public_Only_Package;
+\end{verbatim}
     \end{frame}
 
+    \begin{frame}[containsverbatim]
+    
+        \frametitle{Exemplo:}
+\begin{verbatim}
+-- Pacote privado:
+package Not_That_Public_Package is
+
+    type Private_Type is private;
+
+private
+
+   type Private_Type is array (1 .. 10) of Integer;
+
+end Not_That_Public_Package;
+\end{verbatim}
+    \end{frame}
 
     % Manda os highlight da secao corrente:
     \AtBeginSection[]
