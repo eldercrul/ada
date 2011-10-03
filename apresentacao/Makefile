@@ -5,4 +5,12 @@ all:
 
 
 clean:
-	@rm -f *.pdf *.aux *.log *.nav *.out *.snm *.toc 2>/dev/null
+	@rm -f *.pdf\
+		   *.aux\
+		   *.log\
+		   *.nav\
+		   *.out\
+		   *.snm\
+		   *.toc\
+		   *.vrb\
+		   2>/dev/null
